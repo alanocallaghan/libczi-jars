@@ -1,0 +1,22 @@
+on:
+  push:
+
+jobs:
+  lib:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+
+    - uses: actions/checkout@v4
+      with:
+        repository: ZEISS/libczi
+        path: libczi
+    - name: Cmake
+      run: |
+        cd libczi
+        mkdir build
+        cd build
+        cmake ..
+        cmake --build .
