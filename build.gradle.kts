@@ -3,8 +3,7 @@ plugins {
 }
 
 group = "io.github.qupath"
-version = findProperty("libCZIVersion") ?: "0.67.4-SNAPSHOT"
-
+version = (findProperty("libCZIVersion") as String?) ?: "0.67.4-SNAPSHOT"
 
 publishing {
     repositories {
